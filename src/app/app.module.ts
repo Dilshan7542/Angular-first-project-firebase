@@ -3,15 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment.development";
+import { ShareModule } from './models/share/share.module';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { MainFooterComponent } from './core/main-footer/main-footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent,
+    MainFooterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
+        ShareModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
