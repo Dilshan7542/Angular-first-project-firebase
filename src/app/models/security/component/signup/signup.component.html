@@ -1,0 +1,25 @@
+
+<section class="outer">
+  <div class="login-outer-inner">
+    <p>Register Form</p>
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
+      <mat-form-field >
+        <mat-label>Email</mat-label>
+        <input type="text" matInput placeholder="Enter Email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Enter Password" formControlName="pwd">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="success" [disabled]="registerForm.invalid" >Register</button>
+      <hr>
+      <p>Or Sign in with</p>
+      <div class="social-btn">
+        <button mat-fab color="warn" (click)="authRegister()">Google</button>
+        <button mat-fab color="warn">FB</button>
+        <button mat-fab color="warn">Git</button>
+      </div>
+    </form>
+  </div>
+
+</section>
