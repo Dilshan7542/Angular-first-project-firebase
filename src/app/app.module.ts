@@ -30,8 +30,11 @@ import {MatButtonModule} from "@angular/material/button";
         BrowserAnimationsModule,
         MatButtonModule,
 
+
     ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,32 +2,31 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import { GoogleAuthProvider } from 'firebase/auth';
+import {Router} from "@angular/router";
+import {AuthService} from "../../../../service/auth.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+  constructor(private afAuth: AuthService,private route:Router) {
+  }
   loginForm = new FormGroup({
     email: new FormControl("", Validators.required),
     pwd: new FormControl("", Validators.required),
   });
 
-  login() {
-    console.log(this.loginForm.get("email")?.value);
-    console.log(this.loginForm.get("pwd")?.value);
+  loginWithEmailAndPwd() {
+let email=this.loginForm.get("email")?.value;
+let pwd=this.loginForm.get("pwd")?.value;
+  this.afAuth.authSignInWithEmailAndPassword(email,pwd);
 
   }
 
-  constructor(private afAuth: AngularFireAuth) {
-  }
-  AuthLogin() {
-    this.afAuth
-      .signInWithPopup(new GoogleAuthProvider())
-      .then((result) => {
-        console.log('You have been successfully logged in!');
-      });
 
+  authLoginWithGoogle() {
+    this.afAuth.authLoginWithGoogle();
   }
 }

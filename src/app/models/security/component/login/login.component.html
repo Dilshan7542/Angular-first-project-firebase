@@ -2,7 +2,7 @@
 <section class="outer">
   <div class="login-outer-inner">
     <p>Login Form</p>
-    <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <form (ngSubmit)="loginWithEmailAndPwd()" [formGroup]="loginForm">
       <mat-form-field >
         <mat-label>Email</mat-label>
         <input type="text" matInput placeholder="Enter Email" formControlName="email">
@@ -15,7 +15,7 @@
       <hr>
       <p>Or Sign in with</p>
       <div class="social-btn">
-        <button mat-fab color="warn" (click)="AuthLogin()">Google</button>
+        <button mat-fab color="warn" (click)="authLoginWithGoogle()">Google</button>
         <button mat-fab color="warn">FB</button>
         <button mat-fab color="warn">Git</button>
       </div>
