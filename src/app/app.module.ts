@@ -11,6 +11,8 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { MainFooterComponent } from './core/main-footer/main-footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
+import {CookieService} from "ngx-cookie-service";
+import {CookieManageService} from "./service/cookie-manage.service";
 
 
 
@@ -33,7 +35,8 @@ import {MatButtonModule} from "@angular/material/button";
 
     ],
   providers: [
-
+CookieService,
+    CookieManageService
   ],
   bootstrap: [AppComponent]
 })
